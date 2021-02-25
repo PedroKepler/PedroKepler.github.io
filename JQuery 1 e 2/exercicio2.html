@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+	<script>
+		$(function () {
+			var glossario = [{
+				"id": 1, "termo": "W3C"
+				, "definir": "World Wide Web Consortium – escritório responsável por desenvolver normas técnicas para a Internet"
+				, "autor": "José Borges", "Criacao": "2015-04-01"
+			}
+				, {
+				"id": 2, "termo": "HTML"
+				, "definir": "HyperText Markup Language – linguagem de marcação utilizada para estruturar páginas web"
+				, "autor": "Pedro Silva", "Criacao": "2017-05-12"
+			}
+				, {
+				"id": 3, "termo": "CSS"
+				, "definir": "Cascade Style Sheet – Folhas de estilo utilizadas para configurar a visualização de  páginas web."
+				, "autor": "Maria Machado", "Criacao": "2018-10-11"
+			}
+			];
+
+			$(glossario).each(function (id, termos1) {
+				let titulo = termos1.termo;
+				$("#termos1")
+					.append(
+						$("<li>")
+							.text(titulo).attr("value", id)
+					)
+
+				$("#termos1").on("click", "li", function () {
+					let id = $(this).val();
+					$("#termo").text(glossario[id].termo);
+					$("#definir").text(glossario[id].definir);
+					$("#autor").text(glossario[id].autor);
+					$("#Criacao").text(glossario[id].Criacao);
+
+				})
+
+
+			})
+
+		});
+
+	</script>
+</head>
+
+<body>
+
+	<h1>Glossário</h1>
+	<p> Clique nos termos na qual tem interesse de conhcer!</p>
+	<ul id="termos1"></ul>
+	<div class="fundo">
+		<p id=termo></p>
+		<p id=definir></p>
+		<p id=autor></p>
+		<p id=Criacao></p>
+	</div>
+
+</body>
+
+</html>
